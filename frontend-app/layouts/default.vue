@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-app-bar app>
+  <v-app >
+    <v-app-bar app color="blue-grey">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>Modern Tweet</v-toolbar-title>
     </v-app-bar>
@@ -32,7 +32,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer app>
+    <v-footer app color="blue-grey">
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
