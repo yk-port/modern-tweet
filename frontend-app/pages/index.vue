@@ -1,5 +1,8 @@
 <template>
-  <NewPost />
+  <div>
+    <NewPost />
+    <pre>{{ this.$store.state.post.postData }}</pre>
+  </div>
 </template>
 
 <script>

@@ -74,7 +74,9 @@ export default {
   },
   methods: {
     postTweet () {
-      this.$store.dispatch(('post/post'), {　params: this.postData }, { root: true })
+      // moduleで作ったstoreに対してdispatchする方法
+      // 第一引数：module名/actions名　第二引数：actionsに渡す情報（オプション型）　第三引数：moduleにしたstoreにdispatchしたい時に指定する　　
+      this.$store.dispatch(('post/post'), { params: this.postData }, { root: true })
     },
   },
 }
