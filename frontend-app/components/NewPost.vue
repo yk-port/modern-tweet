@@ -5,6 +5,7 @@
       persistent
       max-width="600px"
     >
+    <pre>{{ $data.postData }}</pre>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
@@ -73,10 +74,17 @@ export default {
     }
   },
   methods: {
-    postTweet () {
-      // moduleで作ったstoreに対してdispatchする方法
+    async postTweet () {
+      // [actionsを使った投稿方法]moduleで作ったstoreに対してdispatchする方法
       // 第一引数：module名/actions名　第二引数：actionsに渡す情報（オプション型）　第三引数：moduleにしたstoreにdispatchしたい時に指定する　　
-      this.$store.dispatch(('post/post'), { params: this.postData }, { root: true })
+      // this.$store.dispatch(('post/post'), { params: this.postData }, { root: true })
+      const url = 'http://localhost:3000/api/v1/posts';
+      const postParams = {
+        title: this.postData.title,
+        body: this.postData.body,
+      }
+      await this.$axios.$post(url, {postParams})
+        .then((res) => console.log(res));
     },
   },
 }
