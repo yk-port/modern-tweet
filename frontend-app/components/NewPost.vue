@@ -78,7 +78,7 @@ export default {
       // [actionsを使った投稿方法]moduleで作ったstoreに対してdispatchする方法
       // 第一引数：module名/actions名　第二引数：actionsに渡す情報（オプション型）　第三引数：moduleにしたstoreにdispatchしたい時に指定する　　
       // this.$store.dispatch(('post/post'), { params: this.postData }, { root: true })
-      const url = 'http://localhost:3000/api/v1/posts';
+      const url = '/api/posts';
       const post = {
         title: this.postData.title,
         body: this.postData.body,
@@ -86,6 +86,7 @@ export default {
       await this.$axios.$post(url, {post})
         .then(res => console.log(res))
         .catch(error => console.log(error));
+      this.dialog = false;
     },
   },
 }

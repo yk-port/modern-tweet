@@ -31,10 +31,10 @@ export default {
     '@nuxtjs/proxy'
   ],
   proxy: {
-    // '/api': {
-    //   target: 'http://localhost:3000',
-    //   pathRewrite: { '^/api/v1/' : '/' }
-    // }
+    '/api': {
+      target: 'http://localhost:3000',
+      pathRewrite: { '^/api/' : '/api/v1/' }
+    }
   },
   axios: {},
   vuetify: {
